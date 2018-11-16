@@ -1,0 +1,20 @@
+spring:
+  cloud:
+    config:
+#      discovery:
+#        enabled: true
+#        serviceId: config-server
+      name: cloud-config-client
+      profile: dev
+      uri: http://localhost:8888
+      label: master
+      retry:
+        max-attempts: 6
+        multiplier: 1.1
+        initial-interval: 1000
+        max-interval: 2000
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh
